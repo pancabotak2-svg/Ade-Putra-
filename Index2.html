@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio Ade Putra</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#080f1c;
+    color:#fff;
+}
+
+/* NAVBAR */
+nav{
+    position:fixed;
+    top:0;
+    width:100%;
+    height:80px;
+    padding:0 7%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:rgba(8,15,28,.95);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid #24324b;
+    z-index:1000;
+}
+
+.logo{
+    font-size:30px;
+    font-weight:bold;
+}
+
+.logo span{
+    color:#735cff;
+}
+
+nav ul{
+    display:flex;
+    gap:25px;
+    list-style:none;
+}
+
+nav ul a{
+    color:#fff;
+    text-decoration:none;
+    font-size:14px;
+}
+
+nav ul a:hover{
+    color:#735cff;
+}
+
+/* HOME */
+.hero{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:120px 7% 70px;
+}
+
+.hero-container{
+    max-width:1050px;
+    display:flex;
+    align-items:center;
+    gap:70px;
+}
+
+.profile{
+    width:260px;
+    height:260px;
+    object-fit:cover;
+    border-radius:50%;
+    border:5px solid #735cff;
+    box-shadow:0 0 40px rgba(115,92,255,.25);
+}
+
+.hero-text h1{
+    font-size:52px;
+    margin-bottom:12px;
+}
+
+.hero-text h1 span{
+    color:#735cff;
+}
+
+.hero-text h2{
+    font-size:22px;
+    color:#b7c0d1;
+    margin-bottom:20px;
+}
+
+.hero-text p{
+    color:#9faabd;
+    line-height:1.8;
+    max-width:600px;
+}
+
+.buttons{
+    margin-top:28px;
+}
+
+.btn{
+    display:inline-block;
+    padding:13px 23px;
+    border-radius:8px;
+    text-decoration:none;
+    margin-right:10px;
+    font-weight:bold;
+}
+
+.primary{
+    background:#735cff;
+    color:white;
+}
+
+.secondary{
+    border:1px solid #735cff;
+    color:#735cff;
+}
+
+/* GENERAL */
+section{
+    padding:90px 7%;
+}
+
+.title{
+    text-align:center;
+    margin-bottom:45px;
+}
+
+.title h2{
+    font-size:35px;
+    margin-bottom:10px;
+}
+
+.title p{
+    color:#8490a4;
+}
+
+/* ABOUT */
+.about{
+    background:#0d1728;
+}
+
+.about-content{
+    max-width:850px;
+    margin:auto;
+    text-align:center;
+}
+
+.about-content p{
+    color:#adb7c8;
+    line-height:1.9;
+    font-size:17px;
+}
+
+/* SKILLS */
+.skills-section{
+    background:#080f1c;
+}
+
+.skills{
+    max-width:1000px;
+    margin:auto;
+    display:flex;
+    flex-direction:column;
+    gap:22px;
+}
+
+.skill-card{
+    background:#121d31;
+    border:2px solid #263754;
+    border-radius:25px;
+    padding:30px 48px;
+    transition:.3s;
+}
+
+.skill-card:hover{
+    border-color:#735cff;
+    transform:translateY(-3px);
+}
+
+.skill-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:25px;
+}
+
+.skill-top h3{
+    font-size:25px;
+}
+
+.percent{
+    color:#806bff;
+    font-size:24px;
+}
+
+.bar{
+    width:100%;
+    height:13px;
+    background:#263650;
+    border-radius:20px;
+    overflow:hidden;
+    margin-bottom:25px;
+}
+
+.progress{
+    height:100%;
+    background:#735cff;
+    border-radius:20px;
+}
+
+.skill-card p{
+    color:#aab5c7;
+    font-size:18px;
+    line-height:1.5;
+}
+
+/* PROJECT */
+.projects{
+    background:#0d1728;
+}
+
+.project-grid{
+    max-width:1100px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+}
+
+.card{
+    background:#121d31;
+    border:1px solid #263754;
+    border-radius:18px;
+    overflow:hidden;
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-7px);
+    border-color:#735cff;
+}
+
+.card img{
+    width:100%;
+    height:210px;
+    object-fit:cover;
+}
+
+.card-content{
+    padding:22px;
+}
+
+.card-content h3{
+    margin-bottom:10px;
+}
+
+.card-content p{
+    color:#9faabd;
+    line-height:1.6;
+}
+
+.tag{
+    display:inline-block;
+    margin-top:15px;
+    padding:7px 13px;
+    background:#211c4a;
+    color:#806bff;
+    border-radius:20px;
+    font-size:12px;
+}
+
+/* DOKUMENTASI */
+.gallery{
+    max-width:1100px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.gallery img{
+    width:100%;
+    height:350px;
+    object-fit:cover;
+    border-radius:16px;
+    border:1px solid #263754;
+    transition:.3s;
+}
+
+.gallery img:hover{
+    transform:scale(1.03);
+}
+
+/* CONTACT */
+.contact{
+    background:#0d1728;
+    text-align:center;
+}
+
+.contact p{
+    color:#aab4c5;
+    line-height:1.8;
+}
+
+.contact-info{
+    margin-top:30px;
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:15px;
+}
+
+.contact-box{
+    background:#121d31;
+    border:1px solid #263754;
+    padding:17px 25px;
+    border-radius:12px;
+}
+
+.contact-box span{
+    color:#806bff;
+}
+
+/* FOOTER */
+footer{
+    background:#050a12;
+    color:#6f7c91;
+    text-align:center;
+    padding:25px;
+}
+
+/* MOBILE */
+@media(max-width:800px){
+
+    nav{
+        height:75px;
+        padding:0 6%;
+    }
+
+    .logo{
+        font-size:25px;
+    }
+
+    nav ul{
+        display:none;
+    }
+
+    .hero{
+        padding:120px 6% 70px;
+    }
+
+    .hero-container{
+        flex-direction:column;
+        text-align:center;
+        gap:30px;
+    }
+
+    .profile{
+        width:210px;
+        height:210px;
+    }
+
+    .hero-text h1{
+        font-size:40px;
+    }
+
+    .hero-text h2{
+        font-size:19px;
+    }
+
+    section{
+        padding:75px 6%;
+    }
+
+    .skill-card{
+        padding:28px 25px;
+        border-radius:22px;
+    }
+
+    .skill-top h3{
+        font-size:21px;
+    }
+
+    .percent{
+        font-size:20px;
+    }
+
+    .skill-card p{
+        font-size:16px;
+    }
+
+    .project-grid,
+    .gallery{
+        grid-template-columns:1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav>
+    <div class="logo">
+        ADE<span>.</span>
+    </div>
+
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Project</a></li>
+        <li><a href="#documentation">Dokumentasi</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+
+
+<!-- HOME -->
+<section class="hero" id="home">
+
+    <div class="hero-container">
+
+        <img
+        class="profile"
+        src="puts.jpg"
+        alt="Ade Putra">
+
+        <div class="hero-text">
+
+            <h1>
+                Hi, I'm <span>Ade Putra</span>
+            </h1>
+
+            <h2>
+                Freelancer & Pekerja Lepas
+            </h2>
+
+            <p>
+                Saya adalah seorang pekerja lepas yang terbuka untuk
+                berbagai jenis pekerjaan dan project. Saya mampu
+                beradaptasi dengan lingkungan kerja, bertanggung jawab
+                terhadap pekerjaan, serta berusaha menyelesaikan tugas
+                sesuai target dan kebutuhan.
+            </p>
+
+            <div class="buttons">
+                <a href="#projects" class="btn primary">
+                    Lihat Project
+                </a>
+
+                <a href="#contact" class="btn secondary">
+                    Hubungi Saya
+                </a>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ABOUT -->
+<section class="about" id="about">
+
+    <div class="title">
+        <h2>Tentang Saya</h2>
+        <p>Kenalan lebih dekat dengan Ade Putra</p>
+    </div>
+
+    <div class="about-content">
+
+        <p>
+            Halo, saya <b>Ade Putra</b>. Saya merupakan seorang
+            freelancer atau pekerja lepas yang dapat bekerja secara
+            mandiri maupun bersama tim. Saya tertarik untuk
+            mendapatkan pengalaman dari berbagai project dan
+            pekerjaan baru. Bagi saya, setiap pekerjaan adalah
+            kesempatan untuk belajar, berkembang, dan memberikan
+            hasil yang maksimal.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- SKILLS -->
+<section class="skills-section" id="skills">
+
+    <div class="title">
+
+        <h2>Kemampuan Saya</h2>
+
+        <p>
+            Beberapa kemampuan yang mendukung saya dalam bekerja
+        </p>
+
+    </div>
+
+
+    <div class="skills">
+
+        <!-- ADAPTASI -->
+        <div class="skill-card">
+
+            <div class="skill-top">
+                <h3>Adaptasi</h3>
+                <div class="percent">93%</div>
+            </div>
+
+            <div class="bar">
+                <div class="progress" style="width:93%"></div>
+            </div>
+
+            <p>
+                Mampu menyesuaikan diri dengan lingkungan
+                dan pekerjaan baru.
+            </p>
+
+        </div>
+
+
+        <!-- MANAJEMEN WAKTU -->
+        <div class="skill-card">
+
+            <div class="skill-top">
+                <h3>Manajemen Waktu</h3>
+                <div class="percent">90%</div>
+            </div>
+
+            <div class="bar">
+                <div class="progress" style="width:90%"></div>
+            </div>
+
+            <p>
+                Berusaha menyelesaikan pekerjaan sesuai
+                target dan deadline.
+            </p>
+
+        </div>
+
+
+        <!-- PROBLEM SOLVING -->
+        <div class="skill-card">
+
+            <div class="skill-top">
+                <h3>Problem Solving</h3>
+                <div class="percent">70%</div>
+            </div>
+
+            <div class="bar">
+                <div class="progress" style="width:70%"></div>
+            </div>
+
+            <p>
+                Mencari solusi ketika menghadapi masalah
+                dalam pekerjaan.
+            </p>
+
+        </div>
+
+
+        <!-- TANGGUNG JAWAB -->
+        <div class="skill-card">
+
+            <div class="skill-top">
+                <h3>Tanggung Jawab</h3>
+                <div class="percent">90%</div>
+            </div>
+
+            <div class="bar">
+                <div class="progress" style="width:90%"></div>
+            </div>
+
+            <p>
+                Bertanggung jawab terhadap tugas yang
+                diberikan sampai selesai.
+            </p>
+
+        </div>
+
+
+        <!-- KOMUNIKASI -->
+        <div class="skill-card">
+
+            <div class="skill-top">
+                <h3>Komunikasi</h3>
+                <div class="percent">80%</div>
+            </div>
+
+            <div class="bar">
+                <div class="progress" style="width:80%"></div>
+            </div>
+
+            <p>
+                Mampu berkomunikasi dan memahami kebutuhan
+                dalam sebuah pekerjaan.
+            </p>
+
+        </div>
+
+
+        <!-- KERJA TIM -->
+        <div class="skill-card">
+
+            <div class="skill-top">
+                <h3>Kerja Tim</h3>
+                <div class="percent">90%</div>
+            </div>
+
+            <div class="bar">
+                <div class="progress" style="width:90%"></div>
+            </div>
+
+            <p>
+                Dapat bekerja sama dengan orang lain
+                untuk menyelesaikan pekerjaan.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+
+<!-- DOKUMENTASI -->
+<section id="documentation">
+
+    <div class="title">
+
+        <h2>Dokumentasi</h2>
+
+        <p>
+            Dokumentasi kegiatan dan pekerjaan
+        </p>
+
+    </div>
+
+
+    <div class="gallery">
+
+        <img
+        src="put.jpg"
+        alt="Dokumentasi">
+
+        <img
+        src="put2.jpg"
+        alt="Dokumentasi">
+
+        <img
+        src="Put3.jpg"
+        alt="Dokumentasi">
+
+        <img
+        src="put4.jpg"
+        alt="Dokumentasi">
+
+        <img
+        src="put5.jpg"
+        alt="Dokumentasi">
+
+
+    </div>
+
+</section>
+
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+
+    <div class="title">
+
+        <h2>Let's Work Together</h2>
+
+        <p>
+            Punya pekerjaan atau project? Silakan hubungi saya.
+        </p>
+
+    </div>
+
+
+    <div class="contact-info">
+
+        <div class="contact-box">
+            <span>WhatsApp</span><br>
+            083130790944
+        </div>
+
+        <div class="contact-box">
+            <span>Instagram</span><br>
+            @put2_707
+        </div>
+
+        <div class="contact-box">
+            <span>Email</span><br>
+            adeputrraaa190@gmail.com
+        </div>
+
+    </div>
+
+</section>
+
+
+<footer>
+    © 2026 Ade Putra — Freelancer Portfolio
+</footer>
+
+</body>
+</html>
